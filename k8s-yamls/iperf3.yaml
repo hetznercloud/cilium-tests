@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iperf3-cilium-worker-01
+  labels:
+    app: iperf3-cilium-worker-01
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iperf3-cilium-worker-01
+  template:
+    metadata:
+      labels:
+        app: iperf3-cilium-worker-01
+    spec:
+      containers:
+      - name: iperf3
+        image: networkstatic/iperf3
+        args:
+          - "-s"
+        ports:
+        - containerPort: 5201
+      nodeSelector:
+        kubernetes.io/hostname: "cilium-worker-01"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iperf3-cilium-worker-01
+spec:
+  selector:
+    app: iperf3-cilium-worker-01
+  ports:
+    - protocol: TCP
+      port: 5201
+      targetPort: 5201
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iperf3-cilium-worker-02
+  labels:
+    app: iperf3-cilium-worker-02
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iperf3-cilium-worker-02
+  template:
+    metadata:
+      labels:
+        app: iperf3-cilium-worker-02
+    spec:
+      containers:
+      - name: iperf3
+        image: networkstatic/iperf3
+        args:
+          - "-s"
+        ports:
+        - containerPort: 5201
+      nodeSelector:
+        kubernetes.io/hostname: "cilium-worker-02"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iperf3-cilium-worker-02
+spec:
+  selector:
+    app: iperf3-cilium-worker-02
+  ports:
+    - protocol: TCP
+      port: 5201
+      targetPort: 5201
+  type: LoadBalancer

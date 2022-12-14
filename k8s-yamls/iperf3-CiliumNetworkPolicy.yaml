@@ -1,0 +1,31 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: iperf3-cilium-worker-01
+spec:
+  endpointSelector:
+    matchLabels:
+      app: iperf3-cilium-worker-01
+  ingress:
+    - fromEndpoints:
+        - {}
+    - fromEntities:
+        - cluster
+    - fromCIDR:
+        - [BENCHMARK_01_IP]
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: iperf3-cilium-worker-02
+spec:
+  endpointSelector:
+    matchLabels:
+      app: iperf3-cilium-worker-02
+  ingress:
+    - fromEndpoints:
+        - {}
+    - fromEntities:
+        - cluster
+    - fromCIDR:
+        - [BENCHMARK_02_IP]

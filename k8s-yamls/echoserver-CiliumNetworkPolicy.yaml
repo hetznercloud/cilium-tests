@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: echoserver
+spec:
+  endpointSelector:
+    matchLabels:
+      app: echoserver
+  ingress:
+    - fromEndpoints:
+        - {}
+    - fromEntities:
+        - cluster
+    - fromCIDR:
+        - [BENCHMARK_01_IP]
+        - [BENCHMARK_02_IP]

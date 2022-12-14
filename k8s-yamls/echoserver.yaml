@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echoserver
+  labels:
+    app: echoserver
+spec:
+  replicas: 12
+  selector:
+    matchLabels:
+      app: echoserver
+  template:
+    metadata:
+      labels:
+        app: echoserver
+    spec:
+      containers:
+      - name: echoserver
+        image: cilium/echoserver:1.10.3
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        node-role.kubernetes.io/worker: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echoserver
+spec:
+  selector:
+    app: echoserver
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
