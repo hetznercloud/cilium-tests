@@ -2,7 +2,7 @@
 
 Each test (RPS and Throughtput) has been executed three times and here you can find the best results.
 
-You can find the deployed yamls for the [workloads](./k8s-yamls/workloads/) ([iperf3](https://hub.docker.com/r/networkstatic/iperf3) and [echoserver](https://hub.docker.com/r/cilium/echoserver)) and the [networkPolicies](./k8s-yamls/networkPolicies/).
+You can find the deployed yamls for the [Workloads](./k8s-yamls/Workloads/) ([iperf3](https://hub.docker.com/r/networkstatic/iperf3) and [echoserver](https://hub.docker.com/r/cilium/echoserver)) and the [CiliumNetworkPolicies](./k8s-yamls/CiliumNetworkPolicies/).
 
 Test architecture:
 
