@@ -1,6 +1,10 @@
 # Cilium tests
 
-[INSERT INTRO]
+Each test (RPS and Throughtput) has been executed three times and here you can find the best results.
+
+Test architecture:
+
+![Test-Architecture](./Test-Architecture.drawio.png)
 
 ## Test 1
 
@@ -21,9 +25,9 @@ bpf:
   masquerade: true
 ```
 
-### rps
+### RPS
 
-#### benchmark-01:
+#### Benchmark-01:
 ```
 Summary:
   Total:        600.7303 secs
@@ -67,7 +71,7 @@ Status code distribution:
   [200] 1000000 responses
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 Summary:
   Total:        619.9437 secs
@@ -117,7 +121,7 @@ Error distribution:
 
 ### iperf3
 
-#### benchmark-01:
+#### Benchmark-01:
 ```
 # iperf3 -c [IPERF_01_LB_SERVICE_IP] -t 600 -i 30
 Connecting to host [IPERF_01_LB_SERVICE_IP], port 5201
@@ -151,7 +155,7 @@ Connecting to host [IPERF_01_LB_SERVICE_IP], port 5201
 iperf Done.
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 # iperf3 -c [IPERF_02_LB_SERVICE_IP] -t 600 -i 30
 Connecting to host [IPERF_02_LB_SERVICE_IP], port 5201
@@ -207,9 +211,9 @@ bpf:
   masquerade: true
 ```
 
-### rps
+### RPS
 
-#### benchmark-01:
+#### Senchmark-01:
 ```
 Summary:
   Total:        600.0094 secs
@@ -253,7 +257,7 @@ Status code distribution:
   [200] 1000000 responses
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 Summary:
   Total:        600.0279 secs
@@ -299,7 +303,7 @@ Status code distribution:
 
 ### iperf3
 
-#### benchmark-01:
+#### Benchmark-01:
 ```
 Connecting to host [IPERF_01_LB_SERVICE_IP], port 5201
 [  5] local 46.4.189.34 port 42000 connected to [IPERF_01_LB_SERVICE_IP] port 5201
@@ -332,7 +336,7 @@ Connecting to host [IPERF_01_LB_SERVICE_IP], port 5201
 iperf Done.
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 Connecting to host [IPERF_02_LB_SERVICE_IP], port 5201
 [  5] local 46.4.189.35 port 48334 connected to [IPERF_02_LB_SERVICE_IP] port 5201
@@ -390,9 +394,9 @@ bpf:
   masquerade: true
 ```
 
-### rps
+### RPS
 
-#### benchmark-01:
+#### Benchmark-01:
 ```
 Summary:
   Total:        600.0067 secs
@@ -436,7 +440,7 @@ Status code distribution:
   [200] 1000000 responses
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 Summary:
   Total:        600.0106 secs
@@ -482,7 +486,7 @@ Status code distribution:
 
 ### iperf3
 
-#### benchmark-01:
+#### Benchmark-01:
 ```
 Connecting to host [IPERF_01_LB_SERVICE_IP], port 5201
 [  5] local 46.4.189.34 port 42198 connected to [IPERF_01_LB_SERVICE_IP] port 5201
@@ -515,7 +519,7 @@ Connecting to host [IPERF_01_LB_SERVICE_IP], port 5201
 iperf Done.
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 Connecting to host [IPERF_02_LB_SERVICE_IP], port 5201
 [  5] local 46.4.189.35 port 9356 connected to [IPERF_02_LB_SERVICE_IP] port 5201
@@ -547,7 +551,7 @@ Connecting to host [IPERF_02_LB_SERVICE_IP], port 5201
 
 iperf Done.
 ```
-## Test 4 A
+## Test 4A
 
 value.yaml
 ```
@@ -575,9 +579,9 @@ bpf:
   masquerade: true
 ```
 
-### rps
+### RPS
 
-#### benchmark-01:
+#### Benchmark-01:
 ```
 Summary:
   Total:        600.0102 secs
@@ -621,7 +625,7 @@ Status code distribution:
   [200] 1000000 responses
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 Summary:
   Total:        600.0062 secs
@@ -667,7 +671,7 @@ Status code distribution:
 
 ### iperf3
 
-#### benchmark-01:
+#### Benchmark-01:
 ```
 Connecting to host [IPERF_01_LB_SERVICE_IP], port 5201
 [  5] local 46.4.189.34 port 35562 connected to [IPERF_01_LB_SERVICE_IP] port 5201
@@ -700,7 +704,7 @@ Connecting to host [IPERF_01_LB_SERVICE_IP], port 5201
 iperf Done.
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 Connecting to host [IPERF_02_LB_SERVICE_IP], port 5201
 [  5] local 46.4.189.35 port 43472 connected to [IPERF_02_LB_SERVICE_IP] port 5201
@@ -733,7 +737,7 @@ Connecting to host [IPERF_02_LB_SERVICE_IP], port 5201
 iperf Done.
 ```
 
-## Test 4 B
+## Test 4B
 
 With CiliumNetworkPolicy deployed and a 3rd benchmark (firewalled) system generating traffic.
 
@@ -763,9 +767,9 @@ bpf:
   masquerade: true
 ```
 
-### rps
+### RPS
 
-#### benchmark-01:
+#### Benchmark-01:
 ```
 Summary:
   Total:        600.5526 secs
@@ -809,7 +813,7 @@ Status code distribution:
   [200] 1000000 responses
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 Summary:
   Total:        600.2662 secs
@@ -853,7 +857,7 @@ Status code distribution:
   [200] 1000000 responses
 ```
 
-#### benchmark-03 (firewalled):
+#### Benchmark-03 (firewalled):
 ```
 Summary:
   Total:        600.0602 secs
@@ -917,7 +921,7 @@ Connecting to host [IPERF_01_LB_SERVICE_IP], port 5201
 iperf Done.
 ```
 
-#### benchmark-02:
+#### Benchmark-02:
 ```
 Connecting to host [IPERF_02_LB_SERVICE_IP], port 5201
 [  5] local 46.4.189.35 port 37030 connected to [IPERF_02_LB_SERVICE_IP] port 5201
@@ -950,7 +954,7 @@ Connecting to host [IPERF_02_LB_SERVICE_IP], port 5201
 iperf Done.
 ```
 
-#### benchmark-03 (firewalled):
+#### Benchmark-03 (firewalled):
 ```
 iperf3: error - unable to send control message: Bad file descriptor
 ```
